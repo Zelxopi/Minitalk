@@ -6,7 +6,7 @@
 #    By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/22 15:44:24 by mtrembla          #+#    #+#              #
-#    Updated: 2022/05/22 18:03:40 by mtrembla         ###   ########.fr        #
+#    Updated: 2022/05/22 19:15:15 by mtrembla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ $(NAME):	$(OBJS)
 			$(CC) $(CFLAGS) $@.o -o $@ libft/libft.a
 
 all :	$(NAME)
+		@echo "\033[1;32m all\033[0;39m"
 
 clean :	
 			$(RM) $(OBJS)
@@ -36,7 +37,10 @@ clean :
 fclean : clean
 				$(RM) $(NAME)
 				cd ./libft && make fclean
+				@echo "\033[1;31m fclean\033[0;39m"
 
 re : fclean all
+		@echo "\033[1;35mPotato\033[0;39m"
 
 .PHONY: all clean fclean re
+		@echo "\033[1;36mThe 🦆 you doing?\033[0;39m"

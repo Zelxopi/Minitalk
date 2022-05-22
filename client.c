@@ -6,13 +6,20 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:28:52 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 17:53:20 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/22 19:02:40 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
 #include "libft/libft.h"
+
+static void	ft_handler(int signum)
+{
+	(void)signum;
+	ft_putendl_fd("Signal Sent", 1);
+	exit(EXIT_SUCCESS);
+}
 
 static void	ft_encoding(char *str, pid_t pid)
 {
@@ -42,5 +49,6 @@ int	main(int argc, char **argv)
 
 	(void)argc;
 	pid = ft_atoi(argv[1]);
+	signal(SIGUSR1, ft_handler);
 	ft_encoding(argv[2], pid);
 }

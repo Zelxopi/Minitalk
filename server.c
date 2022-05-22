@@ -6,13 +6,22 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:29:55 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 17:53:10 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:33:30 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
 #include "libft/libft.h"
+
+void	ft_flafla(void)
+{
+	ft_putstr_fd("\nWelcome to Minitalk!\n", 1);
+	ft_putstr_fd("Your process ID: ", 1);
+	ft_putnbr_fd(getpid(),1);
+	ft_putstr_fd("\n-------------------------------", 1);
+	write(1, "\n",1);
+}
 
 static void	ft_sig_printer(int sig, siginfo_t *info, void *context)
 {
@@ -45,8 +54,7 @@ int	main(void)
 {
 	struct sigaction	si;
 
-	ft_putnbr_fd(getpid(),1);
-	write(1, "\n",1);
+	ft_flafla();
 	si.sa_sigaction = ft_sig_printer;
 	si.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &si, NULL);
