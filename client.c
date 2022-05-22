@@ -6,13 +6,13 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:28:52 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 16:09:54 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/22 17:53:20 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
-#include "LibFT/libft.h"
+#include "libft/libft.h"
 
 static void	ft_encoding(char *str, pid_t pid)
 {

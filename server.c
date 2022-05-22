@@ -6,13 +6,13 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:29:55 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 16:09:55 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/22 17:53:10 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
-#include "LibFT/libft.h"
+#include "libft/libft.h"
 
 static void	ft_sig_printer(int sig, siginfo_t *info, void *context)
 {

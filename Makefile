@@ -6,7 +6,7 @@
 #    By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/22 15:44:24 by mtrembla          #+#    #+#              #
-#    Updated: 2022/05/22 17:44:22 by mtrembla         ###   ########.fr        #
+#    Updated: 2022/05/22 18:03:40 by mtrembla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =	client.c \
 
 OBJS = $(SRCS:.c=.o)
 
-LIB = make -C ./LibFT
+LIB = make -C ./libft
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
@@ -25,17 +25,17 @@ RM = rm -fr
 
 $(NAME):	$(OBJS)
 			$(LIB)
-			$(CC) $(CFLAGS) $@.o -o $@ LibFT/libft.a
+			$(CC) $(CFLAGS) $@.o -o $@ libft/libft.a
 
 all :	$(NAME)
 
 clean :	
 			$(RM) $(OBJS)
-			cd ./LibFT && make clean
+			cd ./libft && make clean
 
 fclean : clean
 				$(RM) $(NAME)
-				cd ./LibFT && make fclean
+				cd ./libft && make fclean
 
 re : fclean all
 
