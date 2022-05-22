@@ -6,12 +6,13 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:28:52 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 15:08:15 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/22 16:09:54 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
+#include "LibFT/libft.h"
 
 static void	ft_encoding(char *str, pid_t pid)
 {
@@ -39,6 +40,7 @@ int	main(int argc, char **argv)
 {
 	pid_t	pid;
 
+	(void)argc;
 	pid = ft_atoi(argv[1]);
 	ft_encoding(argv[2], pid);
 }
