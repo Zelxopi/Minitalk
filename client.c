@@ -6,7 +6,7 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 14:28:52 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/22 19:02:40 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/24 13:20:12 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,19 @@ int	main(int argc, char **argv)
 {
 	pid_t	pid;
 
-	(void)argc;
 	pid = ft_atoi(argv[1]);
+	if (argc != 3)
+	{
+		ft_putstr_fd("Number of arguments incorrect\n", 1);
+		return(-1);
+	}
+	if (!ft_strlen(argv[2]))
+		ft_putstr_fd("You're trying to send an empty string...\nI'll allow it\n", 1);
+	if (pid < 1 || pid > 99998)
+	{
+		ft_putstr_fd("PID is invalid\n", 1);
+		return (-1);
+	}
 	signal(SIGUSR1, ft_handler);
 	ft_encoding(argv[2], pid);
 }
