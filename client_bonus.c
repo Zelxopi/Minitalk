@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/10 14:28:52 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/24 15:11:35 by mtrembla         ###   ########.fr       */
+/*   Created: 2022/05/24 14:22:53 by mtrembla          #+#    #+#             */
+/*   Updated: 2022/05/24 15:12:00 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
 #include "libft/libft.h"
+
+static void	ft_handler(int signum)
+{
+	(void)signum;
+	ft_putendl_fd("Signal Sent", 1);
+	exit(EXIT_SUCCESS);
+}
 
 static void	ft_encoding(char *str, pid_t pid)
 {
@@ -40,7 +47,7 @@ int	main(int argc, char **argv)
 {
 	pid_t	pid;
 
-	if (argc != 3 || !argv)
+	if (argc != 3)
 	{
 		ft_putstr_fd("Number of arguments incorrect\n", 1);
 		return(-1);
@@ -53,5 +60,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("PID is invalid\n", 1);
 		return (-1);
 	}
+	signal(SIGUSR1, ft_handler);
 	ft_encoding(argv[2], pid);
 }
