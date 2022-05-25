@@ -6,7 +6,7 @@
 /*   By: mtrembla <mtrembla@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:23:39 by mtrembla          #+#    #+#             */
-/*   Updated: 2022/05/24 14:23:48 by mtrembla         ###   ########.fr       */
+/*   Updated: 2022/05/25 10:01:20 by mtrembla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_flafla(void)
 {
 	ft_putstr_fd("\nWelcome to Minitalk!\n", 1);
 	ft_putstr_fd("Your process ID: ", 1);
-	ft_putnbr_fd(getpid(),1);
+	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("\n-------------------------------", 1);
-	write(1, "\n",1);
+	write(1, "\n", 1);
 }
 
 static void	ft_sig_printer(int sig, siginfo_t *info, void *context)
@@ -61,5 +61,5 @@ int	main(void)
 	sigaction(SIGUSR2, &si, NULL);
 	while (1)
 		pause();
-	return(0);
+	return (0);
 }
